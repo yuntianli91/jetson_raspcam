@@ -15,7 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   dynamic_reconfigure
 )
 
-set(OpenCV_DIR "/usr/local/opencv3.4/share/OpenCV")
+set(OpenCV_DIR "/usr/local/opencv3.4/share/OpenCV/")
 find_package(OpenCV REQUIRED)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -87,8 +87,6 @@ include_directories(
 # add_executable(${PROJECT_NAME}_node src/jetson_raspcam_node.cpp)
 add_executable(raspcam_cap ./src/raspcam_cap.cpp)
 add_executable(raspcam_proc ./src/raspcam_proc.cpp)
-add_executable(test_publisher ./src/test_publisher.cpp)
-add_executable(test_publisher2 ./src/test_publisher2.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -105,6 +103,4 @@ add_executable(test_publisher2 ./src/test_publisher2.cpp)
 # )
 target_link_libraries(raspcam_cap ${OpenCV_LIBS} ${catkin_LIBRARIES})
 target_link_libraries(raspcam_proc ${OpenCV_LIBS} ${catkin_LIBRARIES})
-target_link_libraries(test_publisher ${catkin_LIBRARIES})
-target_link_libraries(test_publisher2 ${catkin_LIBRARIES})
 
