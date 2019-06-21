@@ -1,0 +1,18 @@
+<launch>
+  <machine name = "gstation" address = "gstation-1313" />
+  <machine name = "companion" address = "jetson-nav" env-loader = "/opt/ros/melodic/custom_env.sh"/>
+  
+  <node machine = "companion" name = "raspcam_capture" pkg = "jetson_raspcam" type = "raspcam_cap" output="screen">
+    <param name = "capture_width" type = "int" value = "512" />
+    <param name = "capture_height" type = "int" value = "512"  />
+    <param name = "display_width" type = "int" value = "512" />
+    <param name = "display_height" type = "int" value = "512" />
+    <param name = "framerate" type = "int" value = "60" />
+    <param name = "flip_mode" type = "int" value = "2" />
+  </node>
+
+    
+    <node machine = "gstation" name = "raspcam_processer" pkg = "jetson_raspcam" type = "raspcam_proc" />
+   
+
+</launch>
